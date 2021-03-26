@@ -4,9 +4,22 @@ var nameBurger = document.getElementById('name');
 var ingredients = document.getElementsByClassName('ingredient-checkbox');
 var textPrice = document.getElementById('price');
 var coupon = document.getElementById('coupon');
+var addBtn = document.getElementsByClassName('ingredient-add');
+// console.log(addBtn);
 
 
 var couponCodes = ['12354ABCDEF', '12354ABCDEG', '12354HBCDEF', '12355ABCDEF']
+
+
+// span add cliccabile che attiva checkbox
+for (var i = 0; i < addBtn.length; i++) {
+    var add = addBtn[i];
+    
+    add.addEventListener('click', function () {
+        var thisCheckbox = this.previousElementSibling;
+        thisCheckbox.checked = !thisCheckbox.checked;
+    })
+}
 
 
 //button confirm on click

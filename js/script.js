@@ -3,7 +3,10 @@ var btn = document.getElementById('button');
 var nameBurger = document.getElementById('name');
 var ingredients = document.getElementsByClassName('ingredient-checkbox');
 var textPrice = document.getElementById('price');
-console.log(textPrice);
+var coupon = document.getElementById('coupon');
+
+
+var couponCodes = ['12354ABCDEF', '12354ABCDEG', '12354HBCDEF', '12355ABCDEF']
 
 
 //button confirm on click
@@ -32,8 +35,12 @@ function() {
                 price += parseInt(ingredient.value)
             }
         }
-        //prezzo totale
-        console.log(`Totale: ${price}`);
+        
+        //Verifico se applicare sconto con coupon
+        userCupoun = coupon.value.toUpperCase();
+        if (couponCodes.includes(userCupoun)) {
+            price -= price * 0.2;
+        }
 
         // STAMPO prezzo
         textPrice.innerHTML = price.toFixed(2);
